@@ -5,9 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-    <script src="./js/javascript.js"></script>
+    <script src="./js/javascript.js" defer></script>
+    
+    <header>
+        <ul class="headerLinks">
+            <li class="fakeLink">
+                <a>how to play</a>
+                <!-- on mouseover this displays a short explanation for 
+                how to play. -->
+            </li>
+            <li class="realLink">
+                <a target="_blank" href="https://www.google.com/search?q=etch-a-sketch+great+drawings&sca_esv=587928711&tbm=isch&sxsrf=AM9HkKlUZOHhnBgiXO0W5T9_YUiKuKl8KQ:1701757372019&source=lnms&sa=X&ved=2ahUKEwjtrZyd1PeCAxUtk1YBHcpUCpYQ_AUoAXoECAEQAw&biw=1682&bih=887&dpr=1.1">examples</a>
+            </li>
+        </ul>
+    </header>
+
+    <main>
+        <div class="frame">
+            <div class="gameName">Etch A Sketch</div>
+            <div class="drawingBoard"></div>
+        </div>
+        <!-- JS should create one circle, the buttons and the slider, than the other button
+        then append everything to the main. then align all that below the frame, not 
+        at the bottom of the main. -->
+    </main>
+
+    <footer>This website was built by ErreurDeSyntaxe. Etch A Sketch is owned by Spin Master</footer>
     
 </body>
 </html>
