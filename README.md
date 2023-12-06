@@ -20,3 +20,15 @@ coded, so it's really just the first step. The current step is to arrange
 them neatly, meaning 2 by 2, 3 by 3, 4 by 4. Once I figure that out,
 adding any number of squares per side will be the next step. Then, it will
 need to be done dynamically and through user input. 
+
+# Third Entry: Event Listeners
+
+The process has reached the last step mentioned in the previous entry:
+letting the user determine the grid "size". I am still unsure how the slider
+will transmit its information to the drawing board. I am thinking about
+calling the buildGrid function with a parameter whenever the slider moves.
+buildGrid could have a default parameter of 10. 
+
+The problem I have is the layout (of course!). It is difficult to display
+the buttons (clear drawing board, random color, slider input) in the correct
+position. As always, flexbox is a difficult skill to learn and master. 

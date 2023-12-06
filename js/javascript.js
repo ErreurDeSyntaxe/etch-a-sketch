@@ -1,7 +1,9 @@
 let squaresPerSide = 10;
 
-function buildGrid() {
+function buildGrid(newValue = null) {
     let squareArray = [];
+    console.log(newValue);
+    if (newValue != null) squaresPerSide = newValue;
     let squareSize = (600 / squaresPerSide) + "px";
     let grid = document.querySelector(".drawingBoard");    
     grid.style.display = "flex";
@@ -25,6 +27,7 @@ function buildButtons() {
     sliderInput.max = 20;
     sliderInput.value = 10;
     sliderInput.style.marginTop = "20px";
+    sliderInput.classList.add("userControl");
 
     let leftWheel = document.createElement("img");
     leftWheel.src = "./img/wheels.png";
@@ -48,6 +51,7 @@ function buildButtons() {
     clearButton.style.marginLeft = "15px";
     clearButton.style.marginRight = "15px";
     clearButton.textContent = "Clear Board";
+    clearButton.classList.add("userControl");
 
     let colorButton = document.createElement("button");
     colorButton.style.padding = "20px";
@@ -55,6 +59,7 @@ function buildButtons() {
     colorButton.style.marginLeft = "15px";
     colorButton.style.marginRight = "15px";
     colorButton.textContent = "Rainbow";
+    colorButton.classList.add("userControl");
 
     drawingBoard.appendChild(leftWheel);
     drawingBoard.appendChild(sliderInput);
@@ -63,5 +68,22 @@ function buildButtons() {
     drawingBoard.appendChild(rightWheel);
 }
 
-buildGrid();
+function randomizeColor() {
+    let colors = [];
+    colors[0] = Math.floor(Math.random() * 255);
+    colors[1] = Math.floor(Math.random() * 255);
+    colors[2] = Math.floor(Math.random() * 255);
+}
+
+function enableButtons() {
+    let controlButtons = document.querySelectorAll(".userControl");
+    controlButtons[0].addEventListener("mouseup", () => buildGrid(15));
+    controlButtons[1].addEventListener("click", () => buildGrid);
+    controlButtons[2].addEventListener("click", () => randomizeColor);
+}
+
+
+
+//buildGrid();
 buildButtons();
+//enableButtons();
