@@ -2,12 +2,15 @@ let squaresPerSide = 10;
 
 function buildGrid(newValue = null) {
     let squareArray = [];
-    console.log(newValue);
     if (newValue != null) squaresPerSide = newValue;
     let squareSize = (600 / squaresPerSide) + "px";
     let grid = document.querySelector(".drawingBoard");    
     grid.style.display = "flex";
     grid.style.flexWrap = "wrap";
+
+    while (grid.firstChild) {
+        grid.removeChild(grid.lastChild);
+    }
 
     for (let i = 1; i <= squaresPerSide ** 2; i++) {
         squareArray[i - 1] = document.createElement("div");
@@ -20,11 +23,11 @@ function buildGrid(newValue = null) {
 }
 
 function buildButtons() {
-    let drawingBoard = document.querySelector(".drawingBoard");
+    let lowerFrame = document.querySelector(".lowerFrame");
     let sliderInput = document.createElement("input");
     sliderInput.type = "range";
     sliderInput.min = 1;
-    sliderInput.max = 20;
+    sliderInput.max = 64;
     sliderInput.value = 10;
     sliderInput.style.marginTop = "20px";
     sliderInput.classList.add("userControl");
@@ -36,6 +39,7 @@ function buildButtons() {
     leftWheel.style.width = "80px";
     leftWheel.style.marginTop = "10px";
     leftWheel.style.marginRight = "20px";
+    leftWheel.style.marginLeft = "110px";
 
     let rightWheel = document.createElement("img");
     rightWheel.src = "./img/wheels.png";
@@ -61,11 +65,11 @@ function buildButtons() {
     colorButton.textContent = "Rainbow";
     colorButton.classList.add("userControl");
 
-    drawingBoard.appendChild(leftWheel);
-    drawingBoard.appendChild(sliderInput);
-    drawingBoard.appendChild(clearButton);
-    drawingBoard.appendChild(colorButton);
-    drawingBoard.appendChild(rightWheel);
+    lowerFrame.appendChild(leftWheel);
+    lowerFrame.appendChild(sliderInput);
+    lowerFrame.appendChild(clearButton);
+    lowerFrame.appendChild(colorButton);
+    lowerFrame.appendChild(rightWheel);
 }
 
 function randomizeColor() {
@@ -77,13 +81,13 @@ function randomizeColor() {
 
 function enableButtons() {
     let controlButtons = document.querySelectorAll(".userControl");
-    controlButtons[0].addEventListener("mouseup", () => buildGrid(15));
+    controlButtons[0].addEventListener("input", function () {
+        buildGrid(this.value);
+    });
     controlButtons[1].addEventListener("click", () => buildGrid);
     controlButtons[2].addEventListener("click", () => randomizeColor);
 }
 
-
-
-//buildGrid();
+buildGrid();
 buildButtons();
-//enableButtons();
+enableButtons();
