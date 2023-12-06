@@ -1,7 +1,9 @@
 let squaresPerSide = 10;
+let squareArray = [];
+let rainbowBrush = false;
 
 function buildGrid(newValue = null) {
-    let squareArray = [];
+    
     if (newValue != null) squaresPerSide = newValue;
     let squareSize = (600 / squaresPerSide) + "px";
     let grid = document.querySelector(".drawingBoard");    
@@ -17,7 +19,8 @@ function buildGrid(newValue = null) {
         squareArray[i - 1].style.height = squareSize;
         squareArray[i - 1].style.width = squareSize;
         squareArray[i - 1].style.backgroundColor = "white";
-        squareArray[i - 1].textContent = i;
+        squareArray[i - 1].addEventListener("mouseover", () =>
+            applyColor(squareArray[i - 1]));
         grid.appendChild(squareArray[i - 1]);
     }
 }
@@ -82,11 +85,27 @@ function buildButtons() {
     lowerFrame.appendChild(div5);
 }
 
+function applyColor(square) {
+    if (!rainbowBrush) {
+        square.style.backgroundColor = "rgb(0, 0, 0)";
+    } else if (rainbowBrush) {
+        let colors = randomizeColor();
+        let randomColor = "rgb(" + colors[0] +
+            ", " + colors[1] + ", " + colors[2] + ")";
+        square.style.backgroundColor = randomColor;
+    }
+}
+
 function randomizeColor() {
     let colors = [];
     colors[0] = Math.floor(Math.random() * 255);
     colors[1] = Math.floor(Math.random() * 255);
     colors[2] = Math.floor(Math.random() * 255);
+    return colors;    
+}
+
+function rainbowOnOff() {
+    rainbowBrush = !rainbowBrush;
 }
 
 function enableButtons() {
@@ -95,8 +114,8 @@ function enableButtons() {
     controlButtons[0].addEventListener("input", function () {
         buildGrid(this.value);
     });
-    controlButtons[1].addEventListener("click", () => buildGrid);
-    controlButtons[2].addEventListener("click", () => randomizeColor);
+    controlButtons[1].addEventListener("click", () => buildGrid());
+    controlButtons[2].addEventListener("click", () => rainbowOnOff());
 }
 
 buildGrid();

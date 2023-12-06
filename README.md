@@ -45,3 +45,10 @@ of time on laying out the buttons, which I had anticipated because my
 CSS skills are poor. The drawing upon hover feels challenging, while the 
 other two feel easier. I'll need to think like a programmer to find a
 solution to my problems. 
+
+# Fifth Entry: The End
+
+The project is finished. It meets all criteria. I had extra plans, like
+hover over links to display a preview, but I'm going to call it a day. I'll
+commit and push. Tomorrow I can take a fresh look at it and decide if it's
+truly over. 
