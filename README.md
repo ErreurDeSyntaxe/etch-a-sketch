@@ -32,3 +32,16 @@ buildGrid could have a default parameter of 10.
 The problem I have is the layout (of course!). It is difficult to display
 the buttons (clear drawing board, random color, slider input) in the correct
 position. As always, flexbox is a difficult skill to learn and master. 
+
+# Fourth Entry: Thinking
+
+The styling is finally over (I believe). The difficulty this time 
+(on top of flexbox) was to user the correct terms to style everything
+through JS. An example of this is margin-top in CSS to marginTop in JS. 
+
+Three features need to be coded: the drawing upon hover, the clear button,
+and the rainbow button. I will tackle them in that order. I wasted a lot 
+of time on laying out the buttons, which I had anticipated because my
+CSS skills are poor. The drawing upon hover feels challenging, while the 
+other two feel easier. I'll need to think like a programmer to find a
+solution to my problems. 
