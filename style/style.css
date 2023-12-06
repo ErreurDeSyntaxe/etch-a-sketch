@@ -58,12 +58,15 @@ main {
     margin-top:20px;
 }
 
+.lowerFrame {
+    height: 100px;
+}
+
 .drawingBoard {
     background-color: whitesmoke;
     width: 600px;
     height: 600px;
     margin-right: 100px;
-    /* margin-bottom: 100px; */
     margin-left: 100px;
     margin-top: auto;
     border-radius: 1%;

@@ -24,12 +24,15 @@ function buildGrid(newValue = null) {
 
 function buildButtons() {
     let lowerFrame = document.querySelector(".lowerFrame");
+    lowerFrame.style.display = "flex";
+    lowerFrame.style.justifyContent = "space-evenly";
+    lowerFrame.style.alignItems = "center";
+
     let sliderInput = document.createElement("input");
     sliderInput.type = "range";
     sliderInput.min = 1;
     sliderInput.max = 64;
     sliderInput.value = 10;
-    sliderInput.style.marginTop = "20px";
     sliderInput.classList.add("userControl");
 
     let leftWheel = document.createElement("img");
@@ -37,39 +40,46 @@ function buildButtons() {
     leftWheel.alt = "a soccer ball designed by OpenClipart-Vectors on pixabay.com";
     leftWheel.style.height = "80px";
     leftWheel.style.width = "80px";
-    leftWheel.style.marginTop = "10px";
-    leftWheel.style.marginRight = "20px";
-    leftWheel.style.marginLeft = "110px";
 
     let rightWheel = document.createElement("img");
     rightWheel.src = "./img/wheels.png";
     rightWheel.alt = "a soccer ball designed by OpenClipart-Vectors on pixabay.com";
     rightWheel.style.height = "80px";
     rightWheel.style.width = "80px";
-    rightWheel.style.marginTop = "10px";
-    rightWheel.style.marginLeft = "15px";
 
     let clearButton = document.createElement("button");
     clearButton.style.padding = "20px";
-    clearButton.style.marginTop = "20px";
-    clearButton.style.marginLeft = "15px";
-    clearButton.style.marginRight = "15px";
     clearButton.textContent = "Clear Board";
     clearButton.classList.add("userControl");
 
     let colorButton = document.createElement("button");
     colorButton.style.padding = "20px";
-    colorButton.style.marginTop = "20px";
-    colorButton.style.marginLeft = "15px";
-    colorButton.style.marginRight = "15px";
     colorButton.textContent = "Rainbow";
     colorButton.classList.add("userControl");
 
-    lowerFrame.appendChild(leftWheel);
-    lowerFrame.appendChild(sliderInput);
-    lowerFrame.appendChild(clearButton);
-    lowerFrame.appendChild(colorButton);
-    lowerFrame.appendChild(rightWheel);
+    let div1 = document.createElement("div");
+    let div2 = document.createElement("div");
+    let div3 = document.createElement("div");
+    let div4 = document.createElement("div");
+    let div5 = document.createElement("div");
+
+    div1.style.width = "80px";
+    div2.style.width = "130px";
+    div3.style.width = "118px";
+    div4.style.width = "98px";
+    div5.style.width = "80px";
+
+    div1.appendChild(leftWheel);
+    div2.appendChild(sliderInput);
+    div3.appendChild(clearButton);
+    div4.appendChild(colorButton);
+    div5.appendChild(rightWheel);
+
+    lowerFrame.appendChild(div1);
+    lowerFrame.appendChild(div2);
+    lowerFrame.appendChild(div3);
+    lowerFrame.appendChild(div4);
+    lowerFrame.appendChild(div5);
 }
 
 function randomizeColor() {
@@ -81,6 +91,7 @@ function randomizeColor() {
 
 function enableButtons() {
     let controlButtons = document.querySelectorAll(".userControl");
+    
     controlButtons[0].addEventListener("input", function () {
         buildGrid(this.value);
     });
