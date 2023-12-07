@@ -52,3 +52,14 @@ The project is finished. It meets all criteria. I had extra plans, like
 hover over links to display a preview, but I'm going to call it a day. I'll
 commit and push. Tomorrow I can take a fresh look at it and decide if it's
 truly over. 
+
+# Sixth Entry: Refactoring Code
+
+I feel proud of my work. It was difficult, but the results are worth the
+effort. Both the website and the knowledge acquired are valuable. Every
+time a new project starts, fear and doubt cause me to despair, just like
+the article of Why Learning To Code Is So Damn Hard by Erik Trautman,
+founder (co-founder?) of The Odin Project. He also explained that when
+the going gets tough, it's time to push some more. 
+
+I didn't come this far, just to come this far.

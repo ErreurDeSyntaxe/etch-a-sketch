@@ -3,7 +3,9 @@ let squareArray = [];
 let rainbowBrush = false;
 
 function buildGrid(newValue = null) {
-    
+    //newValue is set to "null" by default because on page load,
+    //the user has not yet given a new value. buildGrid is called
+    //by the moving of the slide, ie user inputting a new value
     if (newValue != null) squaresPerSide = newValue;
     let squareSize = (600 / squaresPerSide) + "px";
     let grid = document.querySelector(".drawingBoard");    
@@ -60,6 +62,9 @@ function buildButtons() {
     colorButton.textContent = "Rainbow";
     colorButton.classList.add("userControl");
 
+    /****************************************/
+    /*The following section serves to ease the pain
+    that is laying out a web page.*/
     let div1 = document.createElement("div");
     let div2 = document.createElement("div");
     let div3 = document.createElement("div");
@@ -71,6 +76,8 @@ function buildButtons() {
     div3.style.width = "118px";
     div4.style.width = "98px";
     div5.style.width = "80px";
+    /*Resize the divs to contain only their own element*/
+    /****************************************/
 
     div1.appendChild(leftWheel);
     div2.appendChild(sliderInput);
@@ -89,23 +96,31 @@ function applyColor(square) {
     if (!rainbowBrush) {
         square.style.backgroundColor = "rgb(0, 0, 0)";
     } else if (rainbowBrush) {
-        let colors = randomizeColor();
-        let randomColor = "rgb(" + colors[0] +
-            ", " + colors[1] + ", " + colors[2] + ")";
+        let c = randomizeColor();
+        let randomColor = `rgb( ${c[0]}, ${c[1]}, ${c[2]})`;
         square.style.backgroundColor = randomColor;
+        //style.backgroundColor requires a string
     }
 }
 
 function randomizeColor() {
     let colors = [];
-    colors[0] = Math.floor(Math.random() * 255);
-    colors[1] = Math.floor(Math.random() * 255);
-    colors[2] = Math.floor(Math.random() * 255);
+    colors[0] = Math.floor(Math.random() * 256);
+    colors[1] = Math.floor(Math.random() * 256);
+    colors[2] = Math.floor(Math.random() * 256);
     return colors;    
 }
 
 function rainbowOnOff() {
     rainbowBrush = !rainbowBrush;
+}
+
+function clearGrid() {
+    let grid = document.querySelector(".drawingBoard");
+    let gridItem = grid.children;
+    for (let i = 0; i < gridItem.length; i++) {
+        gridItem[i].style.backgroundColor = "white";
+    }
 }
 
 function enableButtons() {
@@ -114,7 +129,7 @@ function enableButtons() {
     controlButtons[0].addEventListener("input", function () {
         buildGrid(this.value);
     });
-    controlButtons[1].addEventListener("click", () => buildGrid());
+    controlButtons[1].addEventListener("click", () => clearGrid());
     controlButtons[2].addEventListener("click", () => rainbowOnOff());
 }
 
