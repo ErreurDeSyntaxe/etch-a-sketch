@@ -4,7 +4,7 @@ An in-browser game of etch a sketch
 # Preview
 
 <div align="center">
-    <img src="./images/project-preview.png">
+    <img src="./img/project-preview.png">
 </div>
 
 # Links
