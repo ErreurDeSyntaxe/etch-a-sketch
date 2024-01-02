@@ -1,4 +1,4 @@
-# etch-a-sketch
+# foundations-etch-a-sketch
 An in-browser game of etch a sketch
 
 # Preview
@@ -11,7 +11,7 @@ An in-browser game of etch a sketch
 
 -[Assignment Page (Dec '23)](https://www.theodinproject.com/lessons/foundations-etch-a-sketch)
 
--[Finished Project](https://erreurdesyntaxe.github.io/etch-a-sketch/)
+-[Finished Project](https://erreurdesyntaxe.github.io/foundations-etch-a-sketch/)
 
 # Notable Features
 
